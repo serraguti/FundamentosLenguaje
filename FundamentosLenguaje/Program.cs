@@ -10,7 +10,41 @@ namespace FundamentosLenguaje
             //NumeroPositivoNegativo();
             //MayorTresNumeros();
             //DiaNacimientoSemana();
-            ConjeturaCollatz();
+            //ConjeturaCollatz();
+            //NumerosPares();
+            SumarNumeros();
+        }
+
+        static void SumarNumeros()
+        {
+            Console.WriteLine("Introduzca un número");
+            String dato = Console.ReadLine();
+            int numero = int.Parse(dato);
+            int suma = numero;
+            while (numero != 0)
+            {
+                Console.WriteLine("Suma " + suma);
+                Console.WriteLine("Introduzca numero");
+                dato = Console.ReadLine();
+                numero = int.Parse(dato);
+                suma += numero;
+            }
+            Console.WriteLine("Hasta luego");
+        }
+
+        static void NumerosPares()
+        {
+            Console.WriteLine("Introduzca un inicio: ");
+            String dato = Console.ReadLine();
+            int inicio = int.Parse(dato);
+            Console.WriteLine("Introduzca un fin: ");
+            dato = Console.ReadLine();
+            int fin = int.Parse(dato);
+            for (int i = inicio; i <= fin; i++) {
+                if (i % 2 == 0) {
+                    Console.WriteLine(i);
+                }
+            }
         }
 
         static void ConjeturaCollatz()
