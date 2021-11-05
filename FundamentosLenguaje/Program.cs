@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
 
@@ -9,15 +10,37 @@ namespace FundamentosLenguaje
     {
         static void Main(string[] args)
         {
-            //DESDE AQUI EJECUTAMOS EL METODO
-            //NumeroPositivoNegativo();
-            //MayorTresNumeros();
-            //DiaNacimientoSemana();
-            //ConjeturaCollatz();
-            //NumerosPares();
-            //SumarNumeros();
-            //EjemploChar(TipoChar.Simbolos);
-            //SumarNumerosString();
+            EjemploColecciones();
+        }
+
+        static void EjemploColecciones()
+        {
+            List<int> numeros = new List<int>();
+            //AL TENER TIPADO, NOS DA ERRORES DE COMPILACION
+            numeros.Add(45);
+            numeros.Add(78);
+            //foreach (int num in numeros)
+            //{
+            //    Console.WriteLine(num);
+            //}
+
+            List<String> nombres = new List<string>();
+            nombres.Add("Ana");
+            nombres.Add("Adrian");
+            nombres.Add("Lucia");
+            nombres.Add("Ana");
+            //QUE SUCEDE SI ELIMINAMOS UN ELEMENTO REPETIDO
+            //POR SU OBJETO
+            //ELIMINA LA PRIMERA COINCIDENCIA
+            //nombres.Remove("Ana");
+            //PODEMOS ELIMINAR POR INDICE
+            nombres.RemoveAt(3);
+            //Console.WriteLine(nombres[1]);
+            int longitud = nombres.Count;
+            for (int i = 0; i < longitud; i++)
+            {
+                nombres.Add("Otro nombre");
+            }
         }
 
         static void InvertirTextoStringBuilder(String datos)
