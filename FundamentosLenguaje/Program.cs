@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Diagnostics;
+using System.Text;
 
 namespace FundamentosLenguaje
 {
+    enum TipoChar { Letras, Numeros, Simbolos}
     class Program
     {
         static void Main(string[] args)
@@ -12,7 +15,107 @@ namespace FundamentosLenguaje
             //DiaNacimientoSemana();
             //ConjeturaCollatz();
             //NumerosPares();
-            SumarNumeros();
+            //SumarNumeros();
+            //EjemploChar(TipoChar.Simbolos);
+            //SumarNumerosString();
+        }
+
+        static void InvertirTextoStringBuilder(String datos)
+        {
+            //QUEREMOS MEDIR EL RENDIMIENTO
+            Stopwatch krono = new Stopwatch();
+            //INICIAMOS EL CONTADOR
+            krono.Start();
+            //TRABAJAMOS CON STRINGBUILDER
+            StringBuilder texto = new StringBuilder();
+            texto.Append(datos);
+            //AÑADIMOS EL TEXTO AL BUILDER
+            //RECORREMOS EL TEXTO
+            for (int i = 0; i < texto.Length; i++)
+            {
+                //RECUPERAMOS LA ULTIMA LETRA
+                char letra = texto[texto.Length - 1];
+                //ELIMINAMOS LA ULTIMA LETRA
+                texto = texto.Remove(texto.Length - 1, 1);
+                //INSERTAMOS LA LETRA EN LA POSICION DE i
+                texto = texto.Insert(i, letra.ToString());
+            }
+            Console.WriteLine("---------------------------------");
+            krono.Stop();
+            Console.WriteLine(texto);
+            Console.WriteLine("------------TIEMPO-----------------");
+            Console.WriteLine("Milisegundos: " + krono.Elapsed.TotalMilliseconds);
+        }
+
+        static void InvertirTextoString(String texto)
+        {
+            //QUEREMOS MEDIR EL RENDIMIENTO
+            Stopwatch krono = new Stopwatch();
+            //INICIAMOS EL CONTADOR
+            krono.Start();
+            //RECORREMOS EL TEXTO
+            for (int i = 0; i < texto.Length; i++)
+            {
+                //RECUPERAMOS LA ULTIMA LETRA
+                char letra = texto[texto.Length - 1];
+                //ELIMINAMOS LA ULTIMA LETRA
+                texto = texto.Remove(texto.Length - 1, 1);
+                //INSERTAMOS LA LETRA EN LA POSICION DE i
+                texto = texto.Insert(i, letra.ToString());
+            }
+            Console.WriteLine("---------------------------------");
+            krono.Stop();
+            Console.WriteLine(texto);
+            Console.WriteLine("------------TIEMPO-----------------");
+            Console.WriteLine("Milisegundos: " + krono.Elapsed.TotalMilliseconds);
+        }
+
+        static void SumarNumerosString()
+        {
+            Console.WriteLine("Introduzca un texto");
+            string texto = Console.ReadLine();
+            int suma = 0;
+            for (var i = 0; i < texto.Length; i++)
+            {
+                //PROPIEDAD INDIZADA DE UN CONJUNTO
+                char caracter = texto[i];
+                //CONVERTIMOS EL CARACTER A NUMERO
+                //EN ESTA CONVERSION RECUPERA EL CODIGO
+                //ASCII DEL NUMERO '1' (49)
+                //NO NOS SIRVE ESTA CONVERSION
+                //int numero = (int)caracter;
+                //DEBEMOS CONVERTIR EL CARACTER A LITERAL (String)
+                int numero = int.Parse(caracter.ToString());
+                suma += numero;
+            }
+            Console.WriteLine(suma);
+        }
+
+        static void EjemploChar(TipoChar tipo)
+        {
+            for (int i = 0; i <= 255; i++)
+            {
+                char letra = (char) i;
+                if (tipo == TipoChar.Simbolos)
+                {
+                    if (char.IsSymbol(letra))
+                    {
+                        Console.WriteLine(letra);
+                    }
+                }else if (tipo == TipoChar.Letras)
+                {
+                    if (char.IsLetter(letra))
+                    {
+                        Console.WriteLine(letra);
+                    }
+                }else if (tipo == TipoChar.Numeros)
+                {
+                    if (char.IsNumber(letra))
+                    {
+                        Console.WriteLine(letra);
+                    }
+                }
+            }
         }
 
         static void SumarNumeros()
