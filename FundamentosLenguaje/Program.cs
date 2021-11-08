@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using FundamentosLenguaje.Models;
 
 namespace FundamentosLenguaje
 {
@@ -10,7 +11,20 @@ namespace FundamentosLenguaje
     {
         static void Main(string[] args)
         {
-            EjemploColecciones();
+            //DEBEMOS CREAR UNA INSTANCIA DE LA CLASE PERSONA
+            //PARA PODER DARLE NOMBRE, APELLIDOS O EDAD
+            Persona person = new Persona();
+            person.Nombre = "Alumno";
+            person.Apellidos = "Azure";
+            person[0] = "Ojos azules";
+            person[1] = "Pelo largo";
+            person[2] = "Mandibula marcada";
+            person.ConvertirDescripciones();
+            Console.WriteLine(person[0]);
+            person.Nacionalidad = Paises.Argentina;
+            person.Edad = 24;
+            Console.WriteLine(person.Nombre + ", " + person.Apellidos
+                + ", " + person.Edad);
         }
 
         static void EjemploColecciones()
