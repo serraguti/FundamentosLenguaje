@@ -8,11 +8,11 @@ namespace FundamentosLenguaje.Models
 
     public class Persona
     {
-        //public Persona()
-        //{
-        //    this.Edad = 10;
-        //    this.Nacionalidad = Paises.España;
-        //}
+        public Persona()
+        {
+            this.Edad = 10;
+            this.Nacionalidad = Paises.España;
+        }
         //CONTROL + K + C
         //CONTROL + K + U
 

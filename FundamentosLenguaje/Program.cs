@@ -13,7 +13,13 @@ namespace FundamentosLenguaje
         {
             Persona persona2 = new Persona("Lucas", "Perez");
             Console.WriteLine(persona2.GetNombreCompleto());
-
+            Empleado emp = new Empleado();
+            emp.Nombre = "Luis";
+            emp.Apellidos = "Barcenas";
+            Console.WriteLine(emp.GetNombreCompleto());
+            emp.Salario = 1200;
+            //LA CLASE PROGRAM NO DEBERIA TOCAR EL SALARIO MINIMO
+            //emp.SalarioMinimo = 4000;
             //DEBEMOS CREAR UNA INSTANCIA DE LA CLASE PERSONA
             //PARA PODER DARLE NOMBRE, APELLIDOS O EDAD
             Persona person = new Persona();
