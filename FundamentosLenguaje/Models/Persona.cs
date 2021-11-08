@@ -8,6 +8,22 @@ namespace FundamentosLenguaje.Models
 
     public class Persona
     {
+        //public Persona()
+        //{
+        //    this.Edad = 10;
+        //    this.Nacionalidad = Paises.España;
+        //}
+        //CONTROL + K + C
+        //CONTROL + K + U
+
+        public Persona(String nombre, String apellidos)
+        {
+            this.Nombre = nombre;
+            this.Apellidos = apellidos;
+        }
+
+
+
         //METODO ACCION PARA PONER EN MAYUSCULAS TODAS
         //LAS DESCRIPCIONES
         public void ConvertirDescripciones()
@@ -24,7 +40,32 @@ namespace FundamentosLenguaje.Models
             return this.Nombre + " " + this.Apellidos;
         }
 
+        public void GetNombreCompleto(String algo)
+        {
+            
+        }
 
+        public String GetNombreCompleto(int num1, int num2)
+        {
+            return this.Nombre + " " + this.Apellidos;
+        }
+        public String GetNombreCompleto(int num)
+        {
+            return this.Nombre + " " + this.Apellidos;
+        }
+
+        //POLIMORFISMO
+        public String GetNombreCompleto(bool orden)
+        {
+            if (orden == true)
+            {
+                return this.Apellidos + " " + this.Nombre;
+            }
+            else
+            {
+                return this.GetNombreCompleto();
+            }
+        }
 
         //PODEMOS MANEJAR LA PROPIEDAD INDIZADA CON
         //LISTAS (DINAMICA) O ARRAYS

@@ -11,6 +11,9 @@ namespace FundamentosLenguaje
     {
         static void Main(string[] args)
         {
+            Persona persona2 = new Persona("Lucas", "Perez");
+            Console.WriteLine(persona2.GetNombreCompleto());
+
             //DEBEMOS CREAR UNA INSTANCIA DE LA CLASE PERSONA
             //PARA PODER DARLE NOMBRE, APELLIDOS O EDAD
             Persona person = new Persona();
@@ -19,12 +22,15 @@ namespace FundamentosLenguaje
             person[0] = "Ojos azules";
             person[1] = "Pelo largo";
             person[2] = "Mandibula marcada";
+            Console.WriteLine(person.Nacionalidad);
             person.ConvertirDescripciones();
             Console.WriteLine(person[0]);
-            person.Nacionalidad = Paises.Argentina;
-            person.Edad = 24;
+            //person.Nacionalidad = Paises.Argentina;
+            //person.Edad = 24;
             Console.WriteLine(person.Nombre + ", " + person.Apellidos
                 + ", " + person.Edad);
+            Console.WriteLine(person.GetNombreCompleto());
+            Console.WriteLine(person.GetNombreCompleto(true));
         }
 
         static void EjemploColecciones()
