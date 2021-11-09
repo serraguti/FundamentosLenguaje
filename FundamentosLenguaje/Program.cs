@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Text;
+using FundamentosLenguaje.Helpers;
 using FundamentosLenguaje.Models;
 
 namespace FundamentosLenguaje
@@ -11,34 +12,22 @@ namespace FundamentosLenguaje
     {
         static void Main(string[] args)
         {
-            //QUEREMOS GENERAR 12 MESES Y GUARDAR SUS TEMPERATURAS
-            //PARA GENERAR NUMEROS ALEATORIOS EN C# UTILIZAMOS
-            //LA CLASE Random
-            Random random = new Random();
-            //DEBEMOS GUARDAR 12 MESES CON SUS DATOS, UN LIST
-            List<TemperaturaMes> meses = new List<TemperaturaMes>();
-            //HACEMOS UN BUCLE HASTA 12 PARA GUARDAR DATOS EN LA LISTA
-            for (int i = 1; i <= 12; i++)
+            //CREAMOS LA CLASE QUE ADMINISTRA MESES
+            HelperMeses helper = new HelperMeses();
+            //AQUI YA SE HAN CREADO LOS MESES
+            //VAMOS A DIBUJARLOS
+            foreach (TemperaturaMes mes in helper.Meses)
             {
-                //DENTRO DEL BUCLE, CREAMOS UN MES POR CADA VUELTA
-                TemperaturaMes mes = new TemperaturaMes();
-                //ASIGNAMOS VALORES ALEATORIOS A CADA MES
-                mes.Maxima = random.Next(1, 50);
-                mes.Minima = random.Next(1, 50);
-                mes.Mes = "Mes " + i;
-                //ALMACENAMOS EL MES EN LA COLECCION
-                meses.Add(mes);
+                Console.WriteLine(mes.Mes + ", Maxima: "
+                    + mes.Maxima + ", Minima: "
+                    + mes.Minima + ", Media Mensual: "
+                    + mes.GetMedia());
             }
-            //EN ESTE PUNTO YA TENEMOS DOCE MESES, PODEMOS HACER CUALQUIER
-            //CODIGO, MOSTRARLOS, VER SU MEDIA O LO QUE SEA...
-            //SIMPLEMENTE VAMOS A RECORRER TODOS LOS MESES GENERADOS
-            //Y MOSTRAMOS SUS DATOS
-            foreach (TemperaturaMes mes in meses)
-            {
-                Console.WriteLine(mes.Mes + ", Maxima: " + mes.Maxima
-                    + ", Minima: " + mes.Minima
-                    + ", Media mensual: " + mes.GetMedia());
-            }
+            //MOSTRAMOS LOS DATOS DE MAXIMA ANUAL, MINIMA Y MEDIA
+            Console.WriteLine("------------DATOS ANUALES-------------");
+            Console.WriteLine("Maxima Anual " + helper.GetMaximaAnual());
+            Console.WriteLine("Minima Anual " + helper.GetMinimaAnual());
+            Console.WriteLine("Media Anual " + helper.GetMediaAnual());
             Console.WriteLine("Fin de programa");
         }
 
