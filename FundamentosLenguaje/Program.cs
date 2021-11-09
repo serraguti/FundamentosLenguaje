@@ -11,32 +11,35 @@ namespace FundamentosLenguaje
     {
         static void Main(string[] args)
         {
-            Persona persona2 = new Persona("Lucas", "Perez");
-            Console.WriteLine(persona2.GetNombreCompleto());
-            Empleado emp = new Empleado();
-            emp.Nombre = "Luis";
-            emp.Apellidos = "Barcenas";
-            Console.WriteLine(emp.GetNombreCompleto());
-            emp.Salario = 1200;
-            //LA CLASE PROGRAM NO DEBERIA TOCAR EL SALARIO MINIMO
-            //emp.SalarioMinimo = 4000;
-            //DEBEMOS CREAR UNA INSTANCIA DE LA CLASE PERSONA
-            //PARA PODER DARLE NOMBRE, APELLIDOS O EDAD
-            Persona person = new Persona();
-            person.Nombre = "Alumno";
-            person.Apellidos = "Azure";
-            person[0] = "Ojos azules";
-            person[1] = "Pelo largo";
-            person[2] = "Mandibula marcada";
-            Console.WriteLine(person.Nacionalidad);
-            person.ConvertirDescripciones();
-            Console.WriteLine(person[0]);
-            //person.Nacionalidad = Paises.Argentina;
-            //person.Edad = 24;
-            Console.WriteLine(person.Nombre + ", " + person.Apellidos
-                + ", " + person.Edad);
-            Console.WriteLine(person.GetNombreCompleto());
-            Console.WriteLine(person.GetNombreCompleto(true));
+            //QUEREMOS GENERAR 12 MESES Y GUARDAR SUS TEMPERATURAS
+            //PARA GENERAR NUMEROS ALEATORIOS EN C# UTILIZAMOS
+            //LA CLASE Random
+            Random random = new Random();
+            //DEBEMOS GUARDAR 12 MESES CON SUS DATOS, UN LIST
+            List<TemperaturaMes> meses = new List<TemperaturaMes>();
+            //HACEMOS UN BUCLE HASTA 12 PARA GUARDAR DATOS EN LA LISTA
+            for (int i = 1; i <= 12; i++)
+            {
+                //DENTRO DEL BUCLE, CREAMOS UN MES POR CADA VUELTA
+                TemperaturaMes mes = new TemperaturaMes();
+                //ASIGNAMOS VALORES ALEATORIOS A CADA MES
+                mes.Maxima = random.Next(1, 50);
+                mes.Minima = random.Next(1, 50);
+                mes.Mes = "Mes " + i;
+                //ALMACENAMOS EL MES EN LA COLECCION
+                meses.Add(mes);
+            }
+            //EN ESTE PUNTO YA TENEMOS DOCE MESES, PODEMOS HACER CUALQUIER
+            //CODIGO, MOSTRARLOS, VER SU MEDIA O LO QUE SEA...
+            //SIMPLEMENTE VAMOS A RECORRER TODOS LOS MESES GENERADOS
+            //Y MOSTRAMOS SUS DATOS
+            foreach (TemperaturaMes mes in meses)
+            {
+                Console.WriteLine(mes.Mes + ", Maxima: " + mes.Maxima
+                    + ", Minima: " + mes.Minima
+                    + ", Media mensual: " + mes.GetMedia());
+            }
+            Console.WriteLine("Fin de programa");
         }
 
         static void EjemploColecciones()

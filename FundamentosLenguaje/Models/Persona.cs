@@ -12,6 +12,7 @@ namespace FundamentosLenguaje.Models
         {
             this.Edad = 10;
             this.Nacionalidad = Paises.España;
+            Console.WriteLine("Constructor PERSONA");
         }
         //CONTROL + K + C
         //CONTROL + K + U
@@ -35,8 +36,9 @@ namespace FundamentosLenguaje.Models
         }
 
         //METODOS QUE DEVUELVEN UN VALOR
-        public String GetNombreCompleto()
+        public virtual String GetNombreCompleto()
         {
+            Console.WriteLine("GetNombreCompleto Persona");
             return this.Nombre + " " + this.Apellidos;
         }
 
