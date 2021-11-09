@@ -10,6 +10,11 @@ namespace FundamentosLenguaje.Helpers
         //ESTA CLASE TENDRA UNA SERIE DE MESES (12)
         //DECLARAMOS UNA PROPIEDAD PARA MANEJAR LOS MESES
         public List<TemperaturaMes> Meses { get; set; }
+        /// <summary>
+        /// COMENTARIOS DE LA CLASE
+        /// </summary>
+        #region ZONA CONSTRUCTOR
+
         //AL INSTANCIAR LA CLASE, QUEREMOS TENER
         //YA LOS MESES CREADOS
         public HelperMeses()
@@ -27,6 +32,8 @@ namespace FundamentosLenguaje.Helpers
                 this.Meses.Add(mes);
             }
         }
+
+        #endregion
 
         //QUEREMOS UN METODO QUE NOS DIGA LA MAXIMA ANUAL
         public int GetMaximaAnual()
