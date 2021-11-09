@@ -12,6 +12,11 @@ namespace FundamentosLenguaje
     {
         static void Main(string[] args)
         {
+
+        }
+
+        static void EjemploMeses()
+        {
             //CREAMOS LA CLASE QUE ADMINISTRA MESES
             HelperMeses helper = new HelperMeses();
             //AQUI YA SE HAN CREADO LOS MESES
