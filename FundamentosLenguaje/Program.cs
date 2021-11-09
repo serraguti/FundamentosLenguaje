@@ -12,7 +12,52 @@ namespace FundamentosLenguaje
     {
         static void Main(string[] args)
         {
+            Coche car = new Coche();
+            int opcion = -1;
+            while (opcion != 6)
+            {
+                MostrarMenuCoche();
+                opcion = int.Parse(Console.ReadLine());
+                if (opcion == 1)
+                {
+                    car.Arrancar();
+                }else if (opcion == 2)
+                {
+                    car.Acelerar();
+                }else if (opcion == 3)
+                {
+                    car.frenar();
+                }else if (opcion == 4)
+                {
+                    car.Girar();
+                }else if (opcion == 5)
+                {
+                    Console.WriteLine("Aceleración");
+                    int aceleracion = int.Parse(Console.ReadLine());
+                    car.Acelerar(aceleracion);
+                }else if (opcion == 6)
+                {
+                    Console.WriteLine("Hasta luego");
+                }
+                else
+                {
+                    Console.WriteLine("Opción incorrecta");
+                }
+                Console.WriteLine(car.ToString());
+            }
+            Console.WriteLine("Fin de programa");
+        }
 
+        static void MostrarMenuCoche()
+        {
+            Console.WriteLine("-----------MENU-----------");
+            Console.WriteLine("1.- Arrancar");
+            Console.WriteLine("2.- Acelerar");
+            Console.WriteLine("3.- Frenar");
+            Console.WriteLine("4.- Girar");
+            Console.WriteLine("5.- Acelerar personalizado");
+            Console.WriteLine("6.- Salir");
+            Console.WriteLine("Seleccione una opción");
         }
 
         static void EjemploMeses()
