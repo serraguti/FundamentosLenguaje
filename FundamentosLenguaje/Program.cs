@@ -13,6 +13,8 @@ namespace FundamentosLenguaje
         static void Main(string[] args)
         {
             Coche car = new Coche();
+            car.Marca = "Seat";
+            car.Modelo = "Leon";
             int opcion = -1;
             while (opcion != 6)
             {
