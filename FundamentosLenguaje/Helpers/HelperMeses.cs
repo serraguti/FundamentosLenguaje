@@ -43,7 +43,7 @@ namespace FundamentosLenguaje.Helpers
 
         public int GetMinimaAnual()
         {
-            int minima = -30;
+            int minima = 30;
             foreach (TemperaturaMes mes in this.Meses)
             {
                 minima = Math.Min(minima, mes.Minima);
